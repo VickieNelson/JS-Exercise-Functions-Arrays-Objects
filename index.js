@@ -285,7 +285,7 @@ return `this is a ${'Lincoln'} ${'Navigator'}`;
 function getLastCarInfo(inventory) {
 
     return  `This is a ${ inventory[ inventory.length - 1 ].car_make } ${ inventory[ inventory.length - 1 ].car_model }`
-     
+
 //there was no need to define anything else. 
 }
 /**
@@ -297,10 +297,29 @@ function getLastCarInfo(inventory) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
-}
+function getModelYears(inventory) { //declaring the array of inventory from above
 
+  let car_year = [];
+
+    for (let index=0; index<inventory.length; index++){
+
+      car_year.push( inventory[index].car_year );		// adding the elements to the array
+    }
+    return car_year;
+    } //closes function
+
+    
+    
+
+
+
+
+
+
+
+
+
+//STRETCH STRETCH STRETCH STRETCH
 /**
  * ### Challenge `getCarInfoById`
  *  * * THIS ONE IS A STRETCH GOAL. ATTEMPT IT ONLY AFTER
