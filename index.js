@@ -63,12 +63,10 @@ console.log(sayGoodbye('Andy'));
 function temperatureCtoF (celsius) {
 
   const fahrenheit = Math.round(celsius*9/5+32);
+
   return fahrenheit;
 
-  //another option could have been....
-  // return Math.round(celsius*9/5+32);
 }
-console.log(temperatureCtoF(60));
 
 
 /**
@@ -88,8 +86,17 @@ console.log(temperatureCtoF(60));
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+function temperatureInF(temp,tempInF) {
+  if (tempInF === 'F') {
+    return (temp+'F');
+  }
+  
+  if (tempInF === 'C') {
+     let fahrenheit = temperatureCtoF (temp); //used fahrenheight because above we returned faren in the function
+    return (fahrenheit+'F');
+    }
+  
+
 }
 
 
@@ -109,9 +116,14 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
-}
+function makePersonObject(id, name, email) {
+  return { id, name, email };
+};
+
+console.log(makePersonObject(1, 'Jane Doe', 'jdoe@acme.com'));
+
+
+
 
 /**
  * ### Challenge `getName`
@@ -126,10 +138,11 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(nameObject) {
+  
+console.log ("My name is " + nameObject.name) //key and value
+    return `Hello, my name is ${nameObject.name}`
 }
-
 
 /**
  * ### Challenge `appleIndex`
@@ -146,8 +159,14 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(inputArray) {
+  
+  for(let index=0; index < inputArray.length; index++){
+// using the word index instead of i for loop
+    if (inputArray[index] === 'apple'){
+      return index;
+    }
+  }
 }
 
 /**
@@ -165,9 +184,24 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
-}
+function isItAnApple(inputArray) {
+  /* code RETURN ARRAY here */
+  // using .push  -   var pushinginto.push();
+
+  const resultBool = [];
+
+  for (let index=0; index<inputArray.length;index++) {
+    if (inputArray[index] === 'apple'){
+      resultBool.push(true);   //I want to push true to the end of resulBool
+    } //this closes if
+
+    else {
+      resultBool.push(false);
+    } //this closes else
+
+  } // this closes loop
+  return resultBool;
+} //closes isItApple
 
 
 
@@ -223,11 +257,21 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
+
+//IN MY OWN WORDS: WHAT IS THIS ASKING ME TO DO??? IT'S SAYING "IF I GIVE YOU MY INVENTORY AND INDEX LOCATION WILL YOU PLEASE GIVE ME THE MAKE AND  MODEL?"
+
 function getCarInfoByIndex(inventory, index) {
   /* code here */
+
+  
+return `this is a ${'Lincoln'} ${'Navigator'}`;
+
 }
 
 /**
+ * 
+ * 
+ * 
  * ### Challenge `getLastCarInfo`
  * 
  * @instructions
@@ -238,10 +282,12 @@ function getCarInfoByIndex(inventory, index) {
  * For example, if getLastCarInfo is invoked passing the inventory inside /data/inventory.js,
  * it will return `This is a Lincoln Town Car`.
 */
-function getLastCarInfo(/* code here */) {
-  /* code here */
-}
+function getLastCarInfo(inventory) {
 
+    return  `This is a ${ inventory[ inventory.length - 1 ].car_make } ${ inventory[ inventory.length - 1 ].car_model }`
+     
+//there was no need to define anything else. 
+}
 /**
  * ### Challenge `getModelYears`
  * 
